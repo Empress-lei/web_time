@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html slick-uniqueid="3">
+	<head lang="en">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>选择时间</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="./css/base.css" />
+		<link rel="stylesheet" href="./css/evaluation.css">
+		<link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
+		<script src="./js/jquery-2.1.1.min.js"></script>
+		<script src="./js/toast-v1.js"></script>
+		<script src="./js/swiper-3.4.2.min.js"></script>
+		<script src="./js/selectDate.js"></script>
+		<style>
+			.current{
+				color:#ff9963;
+			}
+			.swiper-slide-next {
+				color: #ff9900;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapPage">
+			<!--宝宝个人信息-->
+			<div class="evaluationMess">
+				<div class="messNickname" id="messDate">
+					<span class="nickname">
+                        	选择日期：
+                	</span>
+					<span class="nickInput" id="nickSpan"></span>
+					<div class="dateLarge">&gt;</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			function getStr() {
+				//拼接年月日标签
+				var str = "";
+				str += "<div class=\"scrollDate\">";
+				str += "	<div class=\"scrollList\">	";
+				str += "		<div class=\"scrollTit clearfix\">";
+				str += "			<a href=\"javascript:void(0)\" class=\"btn_cancle\"><&nbsp;取消</a>";
+				str += "			<span class=\"showTime\">2014</span>年";
+				str += "			<span class=\"showTime\">07</span>月";
+				str += "			<span class=\"showTime\">11</span>日";
+				str += "				<a href=\"javascript:void(0)\" class=\"btn_sure\">确定&nbsp;></a>";
+				str += "		</div>";
+				str += "		<ul class=\"scrollTime\">";
+				str += "			<li class=\"scrollYear\">";
+				str += "				<div class=\"swiper-container\" id=\"swiperYear\">";
+				str += "					<div class=\"swiper-wrapper\">";
+											for(var i = 1; i <= 50; i++) {
+												str += "<div class=\"swiper-slide\">" + (1980 + i) + "</div>";
+											}
+				str += "					</div>";
+				str += "				</div>";
+				str += "			</li>";
+				str += "			<li class=\"scrollMonth\">";
+				str += "				<div class=\"swiper-container\" id=\"swiperMonth\">";
+				str += "					<div class=\"swiper-wrapper\">";
+										for(var i = 1; i <= 12; i++) {
+											if(i>=10){
+												str += "<div class=\"swiper-slide\">" + i + "</div>";
+											}else {
+												str += "<div class=\"swiper-slide\">" + "0" + i + "</div>";
+											}
+										}
+				str += "					</div>";
+				str += "				</div>";
+				str += "			</li>";
+				str += "			<li class=\"scrollDay\"> ";
+				str += "				<div class=\"swiper-container\" id=\"swiperDay\">";
+				str += "					<div class=\"swiper-wrapper\">";
+										for(var i = 1; i <= 31; i++) {
+											if(i>=10) {
+												str += "<div class=\"swiper-slide\">" + i + "</div>";
+											}else {
+												str += "<div class=\"swiper-slide\">" + "0" + i + "</div>";
+											}
+										}
+				str += "					</div>";
+				str += "				</div>";
+				str += "			</li>";
+				str += "		</ul>";
+				str += "	</div>";
+				str += "</div>";
+				return str;
+			}
+			document.write(getStr());
+
+		</script>
+	</body>
+</html>
